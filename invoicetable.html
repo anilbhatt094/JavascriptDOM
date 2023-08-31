@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <title>JavaScript Dom</title>
+ 	<head>
+		<link rel="stylesheet" href="invoice.css" />
+	</head>
+	<body>
+		<form name="invoiceform">
+			<div class="wdinput">
+				<input type="text" placeholder="Enter Name" name ="fullname"/>
+				<p id="alertname" style="display: none; color: red; font-size: 12px; margin: 0;">Please Enter your Name</p>
+			</div>
+
+			<div class="wdinput">
+				<input type="text" placeholder="Product Name" name="pname"/>
+				<p id="alertprname" style="display: none; color: red; font-size: 12px; margin: 0;">Please Enter your Product Name</p>
+			</div>
+
+			<div class="wdinput">
+				<input type="text" placeholder="Quntity" name="qdetails"/>
+				<p id="alertqdetails" style="display: none; color: red; font-size: 12px; margin: 0;">Please Enter your Quantity</p>
+			</div>
+
+			<div class="wdinput">
+				<input type="text" placeholder="Price" name = "pricedetails"/>
+				<p id="alertprice" style="display: none; color: red; font-size: 12px; margin: 0;">Please Enter your Price</p>
+			</div>
+
+			
+
+			<div class="wdinput">
+				<input type="button"  value="Submt" onclick="clickinvoice()"/>
+			</div>
+		</form>
+
+		<table style="width: 100%;" id="tabdesign" >
+			<tr>
+				<td>S.No</td>
+				<td>Name</td>
+				<td>Product</td>
+				<td>Quantity</td>
+				<td>Pric</td>
+				<td>Total</td>
+			</tr>
+			<tr>
+				<td><p id="sno"></p></td>
+				<td id="name"></td>
+				<td id="product"></td>
+				<td id="quantity"></td>
+				<td id="price"></td>
+				<td id="total"></td>
+			</tr>
+		</table>
+	</body>
+        <script>
+        	function clickinvoice(){
+				var fullname = document.invoiceform.fullname.value;
+				var productname = document.invoiceform.pname.value;
+				var quantitydetails = document.invoiceform.qdetails.value;
+				var pricedetails = document.invoiceform.pricedetails.value;
+				var totalquantityprice = quantitydetails * pricedetails;
+				var showsno = [1]
+				for(let i=0; i<=showsno.length + 1; i++){
+					document.getElementById("sno").innerHTML = showsno[i];
+				}
+			
+				
+				document.getElementById("name").innerHTML = fullname;
+				document.getElementById("product").innerHTML = productname;
+				document.getElementById("quantity").innerHTML = quantitydetails;
+				document.getElementById("price").innerHTML= pricedetails;
+				document.getElementById("total").innerHTML = totalquantityprice;
+				document.getElementById("sno").innerHTML = showsno;
+				
+				if(fullname == "" || fullname == null , productname =="" || productname == null , quantitydetails =="" , pricedetails==""){
+					document.getElementById("alertname").style.display= "block";
+					document.getElementById("alertprname").style.display= "block";
+					document.getElementById("alertqdetails").style.display= "block";
+					document.getElementById("alertprice").style.display= "block";
+					return false;
+				}else{
+					document.getElementById("alertname").style.display= "none";
+					document.getElementById("alertprname").style.display= "none";
+					document.getElementById("alertqdetails").style.display= "none";
+					document.getElementById("alertprice").style.display= "none";
+					return false;
+				}
+			}
+
+			
+        </script>
+    </body>
+</html>

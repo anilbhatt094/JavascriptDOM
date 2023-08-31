@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <title>JavaScript Dom</title>
+ 	<form name="form1">
+ 		<input type="text"  name="textname" id="personame">
+ 		<p id="alerttext" style="color:red; display: none" >Please enter value</p>
+       <input type="button" value="Click On" onclick="clickon()">
+     	<p >Welcome: <span id="demotext"> </span> </p>
+</form>
+        <script>
+        	// function clickon(){
+        	// 	var a =document.form1.textname.value;
+        		
+        	// 	if(a ==""){
+        	// 		alert("Please Enter Value");
+        	// 	}else{
+        	// 		alert("welcome:" + " " + a);
+        	// 	}
+        	// }
+
+        	//document.getElementById() :- Id Base 
+
+        	function clickon(){
+        		var personame = document.getElementById("personame").value;
+        		document.getElementById("demotext").innerHTML = personame;
+        		if(personame == ""){
+        			document.getElementById("alerttext").style.display = "block";
+        		}else{
+        			document.getElementById("alerttext").style.display = "none";
+        		}
+        	}
+
+        	//docuement.getElementByClassName() : Class Base
+
+
+
+
+
+        </script>
+    </body>
+</html>
